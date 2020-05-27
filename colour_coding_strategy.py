@@ -205,6 +205,6 @@ if __name__ == '__main__':
 
     MessageHubHelper = MessageHub()
 
-    MessageHubHelper.add_message('slack', 'market_info', {'text': msg})
+    MessageHubHelper.add_message('slack', 'testing_slack', {'text': msg})
     # MessageHubHelper.add_message('telegram', '915653846', {'text': msg})
     MessageHubHelper.post_all()

@@ -25,7 +25,7 @@ def get_signal():
 def print_signals(date, buy_list, sell_list):
     header = 'Colour Candlestick Signals for {} Market Close: \n=======================================================\n'.format(date)
     if len(buy_list) == 0:
-        buy_message = 'Buy Signals: \n \tThere are no buy signals today'
+        buy_message = 'Buy Signals: \n \tThere are no buy signals today\n'
     else:
         buy_message = 'Buy Signals: \n'
         for item in buy_list:
@@ -81,9 +81,13 @@ def stock_summary(stock_code):
         bt10 = pd.read_csv('trade_export/bt_2010-01-01.csv')
 
         bh1 = pd.read_csv('trade_export/bh_2019-01-01.csv')
+        bh1.columns = ['stock', 'returns']
         bh2 = pd.read_csv('trade_export/bh_2018-01-01.csv')
+        bh2.columns = ['stock', 'returns']
         bh5 = pd.read_csv('trade_export/bh_2015-01-01.csv')
+        bh5.columns = ['stock', 'returns']
         bh10 = pd.read_csv('trade_export/bh_2010-01-01.csv')
+        bh10.columns = ['stock', 'returns']
 
         bt1 = bt1.loc[bt1['stock'] == item]
         bt1_out = 1
@@ -122,7 +126,6 @@ def stock_summary(stock_code):
             classification = 'Mild: Historically +ve Return, -ve Excess Return\n'
         else:
             classification = 'Mild\n'
-        classification += 'Excess Return: 1Y: {} 2Y: {} 5Y: {} 10Y: {}'.format(bt1_out-bh1, bt2_out-bh2, bt5_out)
     avg_holding = round(holding/count)
     avg_return = str(round(pnl/count*100, 3)) + '%'
     return avg_holding, avg_return, classification
