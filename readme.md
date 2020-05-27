@@ -13,7 +13,7 @@ Yellow - Idle
 Green - Bullish
 
 ##Run
-Run 
+Run Hello
 ```python
 colour_candlestick_strategy.py
 ```
